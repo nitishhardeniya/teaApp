@@ -17,7 +17,7 @@ class App extends Component {
     },2000);
     
     const now = new Date();
-    const teaList = [{title:"Lemon Tea",image:"/assets/tea-glass.jpg"},{title:"Green Tea",image:"assets/tea-glass.jpg"},{title:"Masala Tea",image:"assets/tea-glass.jpg"},{title:"Ginger Tea",image:"assets/tea-glass.jpg"}];
+    const teaList = [{title:"Lemon Tea",image:"/assets/tea-glass.jpg",price:20},{title:"Green Tea",image:"assets/tea-glass.jpg",price:30},{title:"Masala Tea",image:"assets/tea-glass.jpg",price:15},{title:"Ginger Tea",image:"assets/tea-glass.jpg",price:15}];
     return (
       <div className="App">
         <Header likes={this.state.likes} />

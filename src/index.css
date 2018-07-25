@@ -21,20 +21,50 @@ section {
   background-color: #DEE5E5;
 }
 
-.tea-items li {
+.item-container {
+  display: flex;
+  margin: 1% 5%;
+}
+
+.tea-items {
   list-style: none;
-  display: block;
+  display: inline-flex;
   background-color: #ffffff;
   margin: 2px;
   padding: 15px 0;
   color: #8D510C;
   cursor: pointer;
+  width:25%;
+  min-height: 200px;
+  position: relative;
 }
 
-/*.tea-items li::before{
-  background: url('assets/tea-glass.jpg');
+.add {
+  background-color: #ffffff;
+  border: 1px solid lightgreen;
+  color: green;
+  cursor: pointer;
+  padding: 6px;
+  height: 30px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.my-cart {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.my-cart li {
+  list-style: none;
   display: block;
-}*/
+  border-bottom: 1px solid #DEE5E5;
+  height: 30px;
+  transition: 500ms;
+}
 
 footer {
   background-color: #484C4C;
