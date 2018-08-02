@@ -29,7 +29,7 @@ export default class Section extends React.Component {
         return (
             <section>
                 <div className="item-container">
-                    { this.props.varities.map(item => <div className="tea-items" key={item.title}>{item.title} <img src="{item.image}" alt="tea"></img> <button className="add" onClick={ () => this.addToCart(item)}>Add</button> </div>) }   
+                    { this.props.varities.map(item => <div className="tea-items" key={item.title}> <div className="item-title">{item.title}</div> <img src={ require('./../assets/tea-glass.jpg')} alt="tea" className="item-img" width="120" height="140"></img> <button className="add" onClick={ () => this.addToCart(item)}>Add</button> </div>) }   
                 </div>
             
                 <div className="my-cart">
@@ -37,14 +37,14 @@ export default class Section extends React.Component {
                     { this.cartItems.map(cartItem => <li key={cartItem.name}>{cartItem.name} x {cartItem.quantity} = {cartItem.quantity * cartItem.price} </li> )}
 
                     <strong>Subtotal:</strong> {this.cartItems.reduce((accumulator, currentValue, currentIndex, array) => {
-                        //console.log(accumulator);
-                        return accumulator + currentValue;
-                    },0) }
+                        //console.log(typeof(accumulator),typeof(currentValue));
+                        return Number(accumulator) + Number(currentValue.price * currentValue.quantity);
+                    },0) }        
 
-                    <button onClick={this.gotoCheckout}>Checkout</button>        
-                            
+                    <button className="add" style={{float:'right'}} onClick={this.gotoCheckout}>Checkout</button>            
                 </div>
             
+                
             </section>
         )
     }

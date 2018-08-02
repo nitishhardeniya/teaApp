@@ -21,6 +21,22 @@ section {
   background-color: #DEE5E5;
 }
 
+footer {
+  background-color: #484C4C;
+  color: #ffffff;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  width:100%;
+}
+
+@media screen and (max-width: 600px) {
+  .tea-items {
+    width: 100%;
+    background-color: #DB8016;
+  }
+}
+
 .item-container {
   display: flex;
   margin: 1% 5%;
@@ -28,7 +44,7 @@ section {
 
 .tea-items {
   list-style: none;
-  display: inline-flex;
+  display: inline-block;
   background-color: #ffffff;
   margin: 2px;
   padding: 15px 0;
@@ -44,12 +60,18 @@ section {
   border: 1px solid lightgreen;
   color: green;
   cursor: pointer;
-  padding: 6px;
+  padding: 6px 16px;
+  margin-top: 5px;
   height: 30px;
   border-radius: 5px;
-  position: absolute;
   bottom: 0;
-  width: 100%;
+  display: inline;
+}
+
+.add:hover {
+  background-color: green;
+  color:#ffffff;
+  transition: 500ms;
 }
 
 .my-cart {
@@ -66,11 +88,15 @@ section {
   transition: 500ms;
 }
 
-footer {
-  background-color: #484C4C;
-  color: #ffffff;
-  height: 100px;
-  position: absolute;
-  bottom: 0;
-  width:100%;
+.item-img {
+  display: block;
+  margin: auto;
 }
+
+.item-title {
+  color: #949644;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+
