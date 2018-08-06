@@ -28,12 +28,17 @@ export default class Section extends React.Component {
         }else{
             this.state.cartItems.push({name:selected.title,quantity:1,price:selected.price});
         }
+
+        //this will update cart at app level
+        //this.props.updateCart;
     };
 
     removeItem(selected){
         let itemIndex = this.state.cartItems.indexOf(selected);
-        //console.log();
         this.state.cartItems.splice(itemIndex,1);
+        /* this.setState((prevState) => {
+            cartItems:prevState.cartItems.splice(itemIndex,1)
+        }); */
     }
 
     gotoCheckout(){

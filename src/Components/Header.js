@@ -3,7 +3,10 @@ import React from 'react';
 export default class Header extends React.Component {
     render(){
         return (
-            <header><h1>{this.props.likes}</h1></header>
+            <header>
+                <span className="app-title">{this.props.likes}</span>
+                <span className="cart-box">{this.props.cartCount}</span>
+            </header>
         )
     }
 }

@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export default class Footer extends React.Component {
     render(){
         return (
             <footer>
-                <p>I'm a Tea lover!</p>
+                <span>
+                    Enjoy a cup of tea at your comfort
+                </span>
             </footer>
         )
     }

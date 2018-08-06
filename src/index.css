@@ -8,14 +8,10 @@ header{
   background-color: #43af78;
   color: #ffffff;
   height: 100px;
-  position: absolute;
-  top: 0;
   width:100%;
 }
 
 section {
-  position: absolute;
-  top:100px;
   /* bottom: 100px; */
   width:100%;
   background-color: #DEE5E5;
@@ -26,9 +22,11 @@ footer {
   background-color: #484C4C;
   color: #ffffff;
   height: 100px;
-  position: absolute;
-  bottom: 0;
   width:100%;
+}
+
+footer span {
+  color: #DEE5E5;
 }
 
 @media screen and (max-width: 600px) {
@@ -36,6 +34,24 @@ footer {
     width: 100%;
     background-color: #DB8016;
   }
+}
+
+.app-title {
+  font-size: 32px;
+  position: relative;
+  top: 15px;
+}
+
+.cart-box {
+  position: absolute;
+  right: 0px;
+  background-color: #fff;
+  color: #43af78;
+  height: 40px;
+  font-weight: 600;
+  width: 40px;
+  line-height: 2;
+  border: 2px solid;
 }
 
 .item-container {
@@ -114,11 +130,11 @@ footer {
   transition: 500ms;
 }
 
-.cart-footer {
+/* .cart-footer {
   position: absolute;
   bottom: 0px;
 }
-
+ */
 .item-img {
   display: block;
   margin: auto;
