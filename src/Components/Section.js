@@ -1,47 +1,75 @@
-import React, { Component } from 'react';
+import React from 'react';
+import TeaItem from './../Components/TeaItem';
+
 
 export default class Section extends React.Component {
     
+    constructor(props){
+        super(props);
+
+        //Setting state for Section component
+        this.state = {
+            cartItems:[]
+        };
+        //this.cartItems = [];
+        this.addToCart = this.addToCart.bind(this);
+        this.removeItem = this.removeItem.bind(this);
+        this.clearCart = this.clearCart.bind(this);
+        //this.gotoCheckout = this.gotoCheckout.bind(this);
+    }
+
     addToCart(selected){
-        let itemFound = this.cartItems.filter((content)=>{
+        let itemFound = this.state.cartItems.filter((content)=>{
             return content.name === selected.title;
         });
 
         if(itemFound.length > 0){
-            this.cartItems[this.cartItems.indexOf(itemFound[0])].quantity++;
+            this.state.cartItems[this.state.cartItems.indexOf(itemFound[0])].quantity++;
         }else{
-            this.cartItems.push({name:selected.title,quantity:1,price:selected.price});
+            this.state.cartItems.push({name:selected.title,quantity:1,price:selected.price});
         }
     };
+
+    removeItem(selected){
+        let itemIndex = this.state.cartItems.indexOf(selected);
+        //console.log();
+        this.state.cartItems.splice(itemIndex,1);
+    }
 
     gotoCheckout(){
 
     }
 
-    constructor(){
-        super();
-        this.cartItems = [];
-        this.addToCart = this.addToCart.bind(this);
-        this.gotoCheckout = this.gotoCheckout.bind(this);
+    clearCart(){
+        this.setState({
+            cartItems:[]
+        });
     }
-
+    
     render(){
         return (
             <section>
+                
                 <div className="item-container">
-                    { this.props.varities.map(item => <div className="tea-items" key={item.title}> <div className="item-title">{item.title}</div> <img src={ require('./../assets/tea-glass.jpg')} alt="tea" className="item-img" width="120" height="140"></img> <button className="add" onClick={ () => this.addToCart(item)}>Add</button> </div>) }   
+                    { this.props.varities.map(item => <TeaItem itemInfo={item} add={this.addToCart} key={item.title} /> ) }   
                 </div>
-            
+
                 <div className="my-cart">
                     <label>Cart:</label>
-                    { this.cartItems.map(cartItem => <li key={cartItem.name}>{cartItem.name} x {cartItem.quantity} = {cartItem.quantity * cartItem.price} </li> )}
+                    <ul>
+                    { this.state.cartItems.map(cartItem => <li key={cartItem.name}>{cartItem.name} x {cartItem.quantity} = ₹ {cartItem.quantity * cartItem.price} <span className="remove-item" onClick={() => this.removeItem(cartItem)}>X</span> </li> )}
+                    </ul>
 
-                    <strong>Subtotal:</strong> {this.cartItems.reduce((accumulator, currentValue, currentIndex, array) => {
-                        //console.log(typeof(accumulator),typeof(currentValue));
-                        return Number(accumulator) + Number(currentValue.price * currentValue.quantity);
-                    },0) }        
+                    <div className="cart-footer">
+                        <div className="subtotal">
+                            <strong>Subtotal:</strong> ₹ {this.state.cartItems.reduce((accumulator, currentValue, currentIndex, array) => {
+                                return Number(accumulator) + Number(currentValue.price * currentValue.quantity);
+                            },0) }    
+                        </div>    
+                        <button className="btn remove" onClick={this.clearCart}>Clear items</button>
+                        <button className="btn add" onClick={this.gotoCheckout}>Checkout</button>         
+                    </div>
 
-                    <button className="add" style={{float:'right'}} onClick={this.gotoCheckout}>Checkout</button>            
                 </div>
             
                 

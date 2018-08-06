@@ -5,7 +5,7 @@ body {
 }
 
 header{
-  background-color: #DB8016;
+  background-color: #43af78;
   color: #ffffff;
   height: 100px;
   position: absolute;
@@ -16,9 +16,10 @@ header{
 section {
   position: absolute;
   top:100px;
-  bottom: 100px;
+  /* bottom: 100px; */
   width:100%;
   background-color: #DEE5E5;
+  display: flex;
 }
 
 footer {
@@ -39,26 +40,29 @@ footer {
 
 .item-container {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   margin: 1% 5%;
 }
 
 .tea-items {
-  list-style: none;
+  display: inline-block;
+  width:25%;
+  min-height: 200px;
+  margin: 2px;
+}
+
+.card {
   display: inline-block;
   background-color: #ffffff;
-  margin: 2px;
-  padding: 15px 0;
+  padding: 20px 45px;
   color: #8D510C;
   cursor: pointer;
-  width:25%;
   min-height: 200px;
   position: relative;
 }
 
-.add {
-  background-color: #ffffff;
-  border: 1px solid lightgreen;
-  color: green;
+.btn {
   cursor: pointer;
   padding: 6px 16px;
   margin-top: 5px;
@@ -68,24 +72,51 @@ footer {
   display: inline;
 }
 
+.add {
+  background-color: #ffffff;
+  border: 1px solid lightgreen;
+  color: green;
+}
+
+.remove {
+  background-color: #ffffff;
+  border: 1px solid red;
+  color: red;
+}
+
+.remove-item {
+  color: red;
+  cursor: pointer;
+}
+
 .add:hover {
-  background-color: green;
+  background-color: lightgreen;
   color:#ffffff;
-  transition: 500ms;
+  transition: 200ms;
 }
 
 .my-cart {
   background-color: #ffffff;
   border: 1px solid #ccc;
   padding: 10px;
+  text-align: right;
+  width:25%;
 }
-
+.my-cart ul {
+  padding: 0;
+}
 .my-cart li {
+  line-height: 2;
   list-style: none;
   display: block;
   border-bottom: 1px solid #DEE5E5;
   height: 30px;
   transition: 500ms;
+}
+
+.cart-footer {
+  position: absolute;
+  bottom: 0px;
 }
 
 .item-img {
