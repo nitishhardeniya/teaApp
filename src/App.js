@@ -9,27 +9,23 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      appName:"App loading..",
+      appName:"Tea corner",
       cartCount:0
     };
   }
 
-  updateCart(prevState) {
+  updateCart = (count) => {
     this.setState({
-      cartCount:prevState.cartCount+1
+      cartCount:count
     });
   }
 
   render() {
-    setTimeout(()=> {
-      this.setState({appName:"Tea App"})
-    },2000);
-
     const teaList = [{title:"Lemon Tea",image:"./../assets/tea-glass.jpg",price:20},{title:"Green Tea",image:"./../assets/tea-glass.jpg",price:30},{title:"Masala Tea",image:"./../assets/tea-glass.jpg",price:15},{title:"Ginger Tea",image:"./../assets/tea-glass.jpg",price:15},{title:"Dum Tea",image:"./../assets/tea-glass.jpg",price:15},{title:"Cardmom Tea",image:"./../assets/tea-glass.jpg",price:15}];
     return (
       <div className="App">
-        <Header likes={this.state.appName} cartCount={this.state.cartCount} updateCart={this.updateCart} />
-        <Section varities={teaList} />
+        <Header appname={this.state.appName} cartCount={this.state.cartCount} />
+        <Section varities={teaList} updateCart={this.updateCart} />
         <Footer />
       </div>
     );

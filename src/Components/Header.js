@@ -4,7 +4,7 @@ export default class Header extends React.Component {
     render(){
         return (
             <header>
-                <span className="app-title">{this.props.likes}</span>
+                <span className="app-title">{this.props.appname}</span>
                 <span className="cart-box">{this.props.cartCount}</span>
             </header>
         )

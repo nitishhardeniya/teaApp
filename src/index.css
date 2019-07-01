@@ -62,20 +62,17 @@ footer span {
 }
 
 .tea-items {
-  display: inline-block;
   width:25%;
   min-height: 200px;
-  margin: 2px;
+  margin: 5px;
 }
 
 .card {
-  display: inline-block;
   background-color: #ffffff;
   padding: 20px 45px;
   color: #8D510C;
   cursor: pointer;
   min-height: 200px;
-  position: relative;
 }
 
 .btn {
@@ -134,11 +131,11 @@ footer span {
   position: absolute;
   bottom: 0px;
 }
- */
+ 
 .item-img {
   display: block;
   margin: auto;
-}
+}*/
 
 .item-title {
   color: #949644;

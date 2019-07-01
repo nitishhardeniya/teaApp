@@ -19,26 +19,29 @@ export default class Section extends React.Component {
     }
 
     addToCart(selected){
-        let itemFound = this.state.cartItems.filter((content)=>{
-            return content.name === selected.title;
-        });
+        let itemFound = this.state.cartItems.filter( content => content.name === selected.title );
+        let cartItems = [...this.state.cartItems];
 
         if(itemFound.length > 0){
-            this.state.cartItems[this.state.cartItems.indexOf(itemFound[0])].quantity++;
+            cartItems[this.state.cartItems.indexOf(itemFound[0])].quantity++;
         }else{
-            this.state.cartItems.push({name:selected.title,quantity:1,price:selected.price});
+            cartItems.push({name:selected.title,quantity:1,price:selected.price});
         }
 
-        //this will update cart at app level
-        //this.props.updateCart;
+        this.setState({
+            cartItems
+        });
+
+        this.props.updateCart(cartItems.length);
     };
 
     removeItem(selected){
         let itemIndex = this.state.cartItems.indexOf(selected);
-        this.state.cartItems.splice(itemIndex,1);
-        /* this.setState((prevState) => {
-            cartItems:prevState.cartItems.splice(itemIndex,1)
-        }); */
+        let cartItems = [...this.state.cartItems];
+        cartItems.splice(itemIndex,1);
+        this.setState({
+            cartItems
+        });
     }
 
     gotoCheckout(){
